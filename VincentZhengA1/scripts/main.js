@@ -28,7 +28,15 @@ let randomNumber;
 // Store the user's information
 let count = 0;
 
-//
+// This function will have the program randomly choose parts of the back, and display the prompts
+// or problems with each part
 function choosingBackPart() {
+    // Makes up random numbers between 0 and 2, which represents the parts of the back (constants).
+    randomNumber = Math.floor(Math.random() * 3);
+    // Shows the prompts (in text) for each portion of the back
+    if (randomNumber == MIDDLE_BACK) {
+        // Add 1 to the count for the moeny
+        moneyCount = moneyCount + 1
 
+    }
 }
