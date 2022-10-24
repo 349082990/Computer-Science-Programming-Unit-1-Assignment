@@ -34,9 +34,12 @@ function choosingBackPart() {
     // Makes up random numbers between 0 and 2, which represents the parts of the back (constants).
     randomNumber = Math.floor(Math.random() * 3);
     // Shows the prompts (in text) for each portion of the back
-    if (randomNumber == MIDDLE_BACK) {
-        // Add 1 to the count for the moeny
-        moneyCount = moneyCount + 1
-
+    if (randomNumber == LOWER_BACK) {
+        document.getElementById('conditionText').innerText = "Just finished a 2-hour deadlifting session. My lower back is dying!"
+    }
+    else if (randomNumber == MIDDLE_BACK) {
+        document.getElementById('conditionText').innerText = "I was choking on my food and my friend decided to slap my middle back, instead of performing abdominal thrusts. Can you do my middle back please?"
+    } else {
+        document.getElementById('conditionText').innerText = "Those lat pull-downs were really killing my back. Can you help to ease the pain please?"
     }
 }
