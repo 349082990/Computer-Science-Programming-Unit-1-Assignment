@@ -3,6 +3,19 @@
         <title>
             Massage Mayhem
         </title>
+        <style>
+            img:hover{transform: scale(1.1);}
+            body {background-color:lightslategray;}
+            p{color:whitesmoke;}
+            h1{color:antiquewhite;}
+            h2{color:floralwhite;}
+            button{color:black;}
+                button:hover {
+                    color: aquamarine;
+                    background-color: deepskyblue;
+                    transform: scale(1.1)
+                }
+        </style>
     </head>
     <body>
         <h2 id="conditionText"></h2>
@@ -11,20 +24,29 @@
 
         <p></p>
 
-        <img src="upperback.png" alt="Upper back" onclick="upperBack();" />
-        <img src="midback.png" alt="Middle back" onclick="middleBack();" />
-        <img src="lowerback.png" alt="Lower back" onclick="lowerBack();" />
+        <img src="upperback.png" alt="Upper back" onclick="upperBack();"/>
+        <img src="midback.png" alt="Middle back" onclick="middleBack();"/>
+        <img src="lowerback.png" alt="Lower back" onclick="lowerBack();"/>
 
-        <p></p>
+        <br /><br /><br />
 
-        <button disabled="true" type="button" id="finger" onclick="buyFinger();">
+        <button disabled="true" type="button" id="muscularfinger" onclick="extraMuscularFingers();">
             Buy an Extra Muscular Finger!
         </button>
-        <button disabled="true" type="button" id="assistant" onclick="buyAssistant();">
+        <button disabled="true" type="button" id="assistant" onclick="buyAttractiveAssistant();">
             Buy an Incredibly Attractive Assistant
         </button>
-        <button disabled="true" type="button" id="franchise" onclick="buyFranchise();">
+        <button disabled ="true" type="button" id="franchise" onclick="buyFranchise();">
             Buy a Franchise
+        </button>
+        <button disabled ="true" type="button" id="ambidextrous" onclick="buyAmbidextrous();">
+            Buy Ambidextrous
+        </button>
+        <button disabled ="true" type="button" id="relocate" onclick="buyRelocation();">
+            Relocate!
+        </button>
+        <button disabled ="true" type="button" id="security" onclick="buySecurity();">
+            Hire Security!
         </button>
         <script src="scripts/main.js"></script>
     </body>
