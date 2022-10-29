@@ -1,0 +1,8 @@
+﻿body {background-color:lightslategray;}
+p{color:whitesmoke;}
+h1{color:antiquewhite;}
+button{color:black;}
+    button:hover {
+        color: aquamarine;
+        background-color: deepskyblue;
+        transform: scale(1.1)

@@ -27,21 +27,21 @@ let randomNumber;
 
 // Store the user's information and store the original costs for upgrades
 let count = 0;
-let muscularFingerPrice = 10;
+let muscularFingerPrice = 100;
 let muscularFingerNum = 0;
 let attractiveAssistantPrice = 400;
 let attractiveAssistantNum = 0;
-let ambidextrousPrice = 1000;       // Change these once code is finalized
-let ambidextrousNum = 0;            // Wrong numbers used for testing purposes
-let franchisePrice = 10;
+let ambidextrousPrice = 500;
+let ambidextrousNum = 0;
+let franchisePrice = 1;     //// Should be 5000
 let franchiseNum = 0;
 let crimeNumber = 25;
 let moneyLost = 0.5;
-let relocationPrice = 10;
+let relocationPrice = 10000;
 let relocationNum = 0;
 let securityPrice = 5;
 let securityNum = 0;
-
+let franchiseMoney = franchiseGeometricSeries();
 
 // This function will have the program randomly choose parts of the back, and display the prompts
 // or problems with each part
@@ -213,29 +213,51 @@ function buyFranchise() {
     }
 }
 
+// This function will run when the amount of franchises is over 0
+// Use a nested function, to calculate the amount of money outputted from the sum of the franchises (geometric series)
+function franchiseGeometricSeries(firstTerm, commonRatio, termNum) {
+    // Set local variables only used in the function
+    var firstTerm = 200;
+    var commonRatio = 0.95;
+    var termNum = franchiseNum;
+    var result = 0;
+    for (let i = 0; i < termNum; i++) {
+        // The result is equal to result + the first term
+        result += firstTerm;
+        // The first term is 200 * the common ratio, 0.95
+        firstTerm *= commonRatio;
+    }
+    // Return the result
+    return result;
+}
+
+//// Try and change the result in franchisegeomtric series to * 0.9 if franchisee revolt is p
 //// This function will run every 5 minutes, after the user gains 8 franchises
-//function franchiseeRevolt() {
-//    // When the user has over 8 franchises
-//    if (franchiseNum > 8) {
-//        // Creates random numbers from 1-10
-//        let randomNumber = Math.floor(Math.random() * 100) + 1;
-//        // 15% chance of occuring
-//        if (randomNumber <= 100) {
-//            // Ask user which choice they would like to make, in regards to their franchises
-//            let text = "The people have revolted against your franchises!\nPress 'Ok' to reduce franchise royalties by 10%\nPress 'Cancel' to lose half of your franchises.";
-//            // Reduce royalties by 10* if user presses 'Ok'
-//            if (confirm(text) == true) {
-//                franchiseGeometricSeries() *= 0.9;
-//                // Half the user's owned franchises (moneyLost = 0.5)
-//            }else{
-//                franchiseNum * moneyLost;
-//            }
-//        }
-//    }
-//}
-//// Runs when number of franchises is more than 8. Franchisee revolt function will be called every 5 minutes
-//// When the user has over 8 franchises
-//setInterval(franchiseeRevolt, 3000); //// Should be 5 minutes
+function franchiseeRevolt() {
+    // Return a true value when the function is called
+    return true;
+    // When the user has over 8 franchises
+    if (franchiseNum > 8) {
+        // Creates random numbers from 1-10
+        let randomNumber = Math.floor(Math.random() * 100) + 1;
+        // 15% chance of occuring
+        if (randomNumber <= 100) {
+            // Ask user which choice they would like to make, in regards to their franchises
+            let text = "The people have revolted against your franchises!\nPress 'Ok' to reduce franchise royalties by 10%\nPress 'Cancel' to lose half of your franchises.";
+            // Reduce royalties by 10* if user presses 'Ok'
+            if (confirm(text) == true) {
+                franchiseGeometricSeries(result) *= 0.9;
+                // Half the user's owned franchises (moneyLost = 0.5)
+            } else {
+                let halfFranchiseCount = franchiseNum *= moneyLost;
+                document.getElementById('franchise').innerText = 'Buy franchises: ' + halfFranchiseCount;
+            }
+        }
+    }
+}
+// Runs when number of franchises is more than 8. Franchisee revolt function will be called every 5 minutes
+// When the user has over 8 franchises
+setInterval(franchiseeRevolt, 10000); //// Should be 5 minutes
 
 // This is the initial public offering function. After a set amount of time, $50,000 will be added
 // to the count for money.
@@ -291,22 +313,6 @@ setInterval(syncInfo, 50);
 function updatingUpgrades() {
     // Add the number of assistants to the money count (1 assistant = $1)
     count += attractiveAssistantNum;
-    // Use a nested function, to calculate the amount of money outputted from the sum of the franchises (geometric series)
-    function franchiseGeometricSeries(firstTerm, commonRatio, termNum) {
-        // Set local variables only used in the function
-        var firstTerm = 200;
-        var commonRatio = 0.95;
-        var termNum = franchiseNum;
-        var result = 0;
-        for (let i = 0; i < termNum; i++) {
-            // The result is equal to result + the first term
-            result += firstTerm;
-            // The first term is 200 * the common ratio, 0.95
-            firstTerm *= commonRatio;
-        }
-        // Return the result
-        return result;
-    }
     // Find the sum of all the money the franchises output and add them to the count
     if (franchiseNum > 0) {
         count += franchiseGeometricSeries();
