@@ -33,15 +33,15 @@ let attractiveAssistantPrice = 400;
 let attractiveAssistantNum = 0;
 let ambidextrousPrice = 500;
 let ambidextrousNum = 0;
-let franchisePrice = 1;     //// Should be 5000
+let franchisePrice = 5000;
 let franchiseNum = 0;
+let franchiseTenPercentDecrease = 0;
 let crimeNumber = 25;
 let moneyLost = 0.5;
 let relocationPrice = 10000;
 let relocationNum = 0;
 let securityPrice = 5;
 let securityNum = 0;
-let franchiseMoney = franchiseGeometricSeries();
 
 // This function will have the program randomly choose parts of the back, and display the prompts
 // or problems with each part
@@ -221,43 +221,51 @@ function franchiseGeometricSeries(firstTerm, commonRatio, termNum) {
     var commonRatio = 0.95;
     var termNum = franchiseNum;
     var result = 0;
+    // Use a for loop to output (add up) all the money that the franchises are generating
     for (let i = 0; i < termNum; i++) {
         // The result is equal to result + the first term
         result += firstTerm;
         // The first term is 200 * the common ratio, 0.95
         firstTerm *= commonRatio;
     }
-    // Return the result
+    // Runs if the amount of franchiseTenPercentDecreases is greater than or equal to 1
+    if (franchiseTenPercentDecrease >= 1) {
+        // Reduce the amount of money the franchises are generating, by 10 percent, for every franchiseTenPercentDecrease there is
+        /*  Return the result*/
+        for (let g = 0; g < franchiseTenPercentDecrease; g++) {
+            result *= 0.9;
+        }
+    }
+    /*  Return the result*/
     return result;
 }
 
-//// Try and change the result in franchisegeomtric series to * 0.9 if franchisee revolt is p
+//// Try and change the result in franchisegeomtric series to * 0.9 if franchisee revolt is used
 //// This function will run every 5 minutes, after the user gains 8 franchises
 function franchiseeRevolt() {
-    // Return a true value when the function is called
-    return true;
     // When the user has over 8 franchises
     if (franchiseNum > 8) {
         // Creates random numbers from 1-10
         let randomNumber = Math.floor(Math.random() * 100) + 1;
         // 15% chance of occuring
-        if (randomNumber <= 100) {
+        if (randomNumber <= 15) {
             // Ask user which choice they would like to make, in regards to their franchises
             let text = "The people have revolted against your franchises!\nPress 'Ok' to reduce franchise royalties by 10%\nPress 'Cancel' to lose half of your franchises.";
             // Reduce royalties by 10* if user presses 'Ok'
             if (confirm(text) == true) {
-                franchiseGeometricSeries(result) *= 0.9;
+                // Return a true value when franchisee revolt is comes through
+                franchiseTenPercentDecrease += 1;
                 // Half the user's owned franchises (moneyLost = 0.5)
             } else {
                 let halfFranchiseCount = franchiseNum *= moneyLost;
-                document.getElementById('franchise').innerText = 'Buy franchises: ' + halfFranchiseCount;
+                document.getElementById('franchise').innerText = 'Buy Franchises: ' + halfFranchiseCount;
             }
         }
     }
 }
-// Runs when number of franchises is more than 8. Franchisee revolt function will be called every 5 minutes
-// When the user has over 8 franchises
-setInterval(franchiseeRevolt, 10000); //// Should be 5 minutes
+
+// Runs the function franchiseeRevolt() every 5 minutes
+setInterval(franchiseeRevolt, 300000);        //// Should be 5 minutes
 
 // This is the initial public offering function. After a set amount of time, $50,000 will be added
 // to the count for money.
@@ -309,7 +317,7 @@ function syncInfo() {
 // The function syncInfo will be called and utilized every 15 milliseconds
 setInterval(syncInfo, 50);
 
-// This function adds the number of upgrades to the count for the upgrades and also adds the money as well
+// This function adds the number of upgrades to the count for the upgrades and also adds the money as well. Also checks for upgrade status
 function updatingUpgrades() {
     // Add the number of assistants to the money count (1 assistant = $1)
     count += attractiveAssistantNum;
@@ -321,6 +329,7 @@ function updatingUpgrades() {
     if (securityNum > 0) {
         count -= securityNum * securityPrice;
     }
+    franchiseeRevoltActivation1();
 }
 // The updatingUpgrades function is called every second, so upgrade can be added onto the count for money.
 setInterval(updatingUpgrades, 1000);
