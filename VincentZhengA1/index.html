@@ -6,37 +6,41 @@
         <link rel="stylesheet" href="designs/index.css" />
     </head>
     <body>
-        <h1>Welcome to Massage Mayhem!</h1>
+        <h1>Welcome to Massage Mayhem!</h1><hr />
         <h2 id="conditionText"></h2>
         <h1 id="count">Money: 0</h1>
-        <a href="help.html">Help</a>
+        <h2><a href="help.html">Help</a></h2><hr />
 
-        <p></p>
+        <br /><br />
 
-        <img src="upperback.png" alt="Upper back" onclick="upperBack();"/>
-        <img src="midback.png" alt="Middle back" onclick="middleBack();"/>
-        <img src="lowerback.png" alt="Lower back" onclick="lowerBack();"/>
+        <div class="container">
+            <img src="upperback.png" alt="Upper back" onclick="upperBack();" />
+            <img src="midback.png" alt="Middle back" onclick="middleBack();" />
+            <img src="lowerback.png" alt="Lower back" onclick="lowerBack();" />
+        </div>
 
-        <br /><br /><br />
+        <div class="container2">
+            <br /><br /><br />
 
-        <button disabled="true" type="button" id="muscularfinger" onclick="extraMuscularFingers();">
-            Buy an Extra Muscular Finger!
-        </button>
-        <button disabled="true" type="button" id="assistant" onclick="buyAttractiveAssistant();">
-            Buy an Incredibly Attractive Assistant
-        </button>
-        <button disabled ="true" type="button" id="franchise" onclick="buyFranchise();">
-            Buy a Franchise
-        </button>
-        <button disabled ="true" type="button" id="ambidextrous" onclick="ambidextrousUpgrade();">
-            Buy Ambidextrous
-        </button>
-        <button disabled ="true" type="button" id="relocate" onclick="relocation();">
-            Relocate!
-        </button>
-        <button disabled ="true" type="button" id="security" onclick="hireSecurity();">
-            Hire Security!
-        </button>
+            <button disabled="true" type="button" id="muscularfinger" onclick="extraMuscularFingers();">
+                Buy an Extra Muscular Finger!
+            </button>
+            <button disabled="true" type="button" id="assistant" onclick="buyAttractiveAssistant();">
+                Buy an Incredibly Attractive Assistant
+            </button>
+            <button disabled="true" type="button" id="franchise" onclick="buyFranchise();">
+                Buy a Franchise
+            </button>
+            <button disabled="true" type="button" id="ambidextrous" onclick="ambidextrousUpgrade();">
+                Buy Ambidextrous
+            </button>
+            <button disabled="true" type="button" id="relocate" onclick="relocation();">
+                Relocate!
+            </button>
+            <button disabled="true" type="button" id="security" onclick="hireSecurity();">
+                Hire Security!
+            </button>
+        </div>
         <script src="scripts/main.js"></script>
     </body>
 </html>

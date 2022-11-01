@@ -16,15 +16,12 @@ function loginSecurity() {
         alert("Wrong username or password");
     }
 }
-
 // Set the sections of the back as constants
 const LOWER_BACK = 0;
 const MIDDLE_BACK = 1;
 const UPPER_BACK = 2;
-
 // Setting randomNumber as a global variable
 let randomNumber;
-
 // Store the user's information and store the original costs for upgrades
 let count = 0;
 let muscularFingerPrice = 100;
@@ -33,7 +30,7 @@ let attractiveAssistantPrice = 400;
 let attractiveAssistantNum = 0;
 let ambidextrousPrice = 500;
 let ambidextrousNum = 0;
-let franchisePrice = 5000;
+let franchisePrice = 1; //// Should be 5000
 let franchiseNum = 0;
 let franchiseTenPercentDecrease = 0;
 let crimeNumber = 25;
@@ -42,7 +39,7 @@ let relocationPrice = 10000;
 let relocationNum = 0;
 let securityPrice = 5;
 let securityNum = 0;
-
+let publicOffering = false;
 // This function will have the program randomly choose parts of the back, and display the prompts
 // or problems with each part
 function choosingBackPart() {
@@ -58,11 +55,41 @@ function choosingBackPart() {
         document.getElementById('conditionText').innerText = "Those lat pull-downs were really killing my back. Can you help to ease the pain on my upper back please?";
     }
 }
-
 // A new part of the back will be chosen for massaging every 10 seconds.
 choosingBackPart();
 setInterval(choosingBackPart, 10000)
+// This function increases the count for the money when the user clicks on the lower back of the image. The text for money and 
+// massage status will be updated at the top of the page
+function lowerBack() {
+    if (randomNumber == LOWER_BACK) {
+        clickingMoney();
+        document.getElementById('conditionText').innerText = "That feels much better, thanks";
+    } else {
+        document.getElementById('conditionText').innerText = "Did I tell you to massage that part of the back? You got the wrong place! I am calling the manager the next time that happens!";
+    }
+}
 
+// This function increases the count for the money when the user clicks on the middle back of the image. The
+// text for money and massage status will be updated on the top of the page.
+function middleBack() {
+    if (randomNumber == MIDDLE_BACK) {
+        clickingMoney();
+        document.getElementById('conditionText').innerText = "That feels much better. I can feel the pain easing. Keep it up!";
+    } else {
+        document.getElementById('conditionText').innerText = "Did I tell you to massage that part of the back? You got the wrong place! I am calling the manager the next time that happens!";
+    }
+}
+
+// This function increases the count for the money when the user clicks on the upper back of the image. The
+// text for money and massage status will be updated on the top of the page.
+function upperBack() {
+    if (randomNumber == UPPER_BACK) {
+        clickingMoney();
+        document.getElementById('conditionText').innerText = "That feels great! Keep it up!";
+    } else {
+        document.getElementById('conditionText').innerText = "Did I tell you to massage that part of the back? You got the wrong place! I am calling the manager the next time that happens!";
+    }
+}
 // This function is used for the count of money, depending one which upgrade is utilized
 function clickingMoney() {
     if (ambidextrousNum == 1) {
@@ -95,40 +122,6 @@ function clickingMoney() {
         }
     }
 }
-
-// This function increases the count for the money when the user clicks on the lower back of the image. The text for money and 
-// massage status will be updated at the top of the page
-function lowerBack() {
-    if (randomNumber == LOWER_BACK) {
-        clickingMoney();
-        document.getElementById('conditionText').innerText = "That feels much better, thanks";
-    } else {
-        document.getElementById('conditionText').innerText = "Did I tell you to massage that part of the back? You got the wrong place! I am calling the manager the next time that happens!";
-    }
-}
-
-// This function increases the count for the money when the user clicks on the middle back of the image. The
-// text for money and massage status will be updated on the top of the page.
-function middleBack() {
-    if (randomNumber == MIDDLE_BACK) {
-        clickingMoney();
-        document.getElementById('conditionText').innerText = "That feels much better. I can feel the pain easing. Keep it up!";
-    } else {
-        document.getElementById('conditionText').innerText = "Did I tell you to massage that part of the back? You got the wrong place! I am calling the manager the next time that happens!";
-    }
-}
-
-// This function increases the count for the money when the user clicks on the upper back of the image. The
-// text for money and massage status will be updated on the top of the page.
-function upperBack() {
-    if (randomNumber == UPPER_BACK) {
-        clickingMoney();
-        document.getElementById('conditionText').innerText = "Ahhhhhhh that feels so good. I almost want to injure myself again so I can come back to this place";
-    } else {
-        document.getElementById('conditionText').innerText = "Did I tell you to massage that part of the back? You got the wrong place! I am calling the manager the next time that happens!";
-    }
-}
-
 // In this function, every 5 minutes, there is a 25% chance that the player will get robbed, in which they will lose half (50%) of their money.
 function crime() {
     // create a random number between 0 and 3 (4 numbers)
@@ -145,7 +138,6 @@ function crime() {
 }
 // The function "crime" will be called every 5 minutes
 setInterval(crime, 300000);
-
 // This function will run when the relocation button is pressed
 function relocation() {
     if (count >= relocationPrice) {
@@ -172,7 +164,6 @@ function extraMuscularFingers() {
         document.getElementById('muscularfinger').innerText = 'Buy an Extra Muscular Finger!: ' + muscularFingerNum;
     }
 }
-
 // This code runs when an attractive assistant is bought.
 function buyAttractiveAssistant() {
     if (count >= attractiveAssistantPrice) {
@@ -186,7 +177,6 @@ function buyAttractiveAssistant() {
         document.getElementById('assistant').innerText = 'Buy an Incredibly Attractive Assistant!: ' + attractiveAssistantNum;
     }
 }
-
 // This code runs when the user presses the Buy ambidextrous button.
 function ambidextrousUpgrade() {
     if (count >= ambidextrousPrice) {
@@ -198,7 +188,6 @@ function ambidextrousUpgrade() {
         document.getElementById('ambidextrous').innerText = 'Ambidextrous Upgrade: PURCHASED'
     }
 }
-
 // This code runs when a franchise is purchased (button is clicked)
 function buyFranchise() {
     if (count >= franchisePrice) {
@@ -212,43 +201,14 @@ function buyFranchise() {
         document.getElementById('franchise').innerText = 'Buy franchises: ' + franchiseNum;
     }
 }
-
-// This function will run when the amount of franchises is over 0
-// Use a nested function, to calculate the amount of money outputted from the sum of the franchises (geometric series)
-function franchiseGeometricSeries(firstTerm, commonRatio, termNum) {
-    // Set local variables only used in the function
-    var firstTerm = 200;
-    var commonRatio = 0.95;
-    var termNum = franchiseNum;
-    var result = 0;
-    // Use a for loop to output (add up) all the money that the franchises are generating
-    for (let i = 0; i < termNum; i++) {
-        // The result is equal to result + the first term
-        result += firstTerm;
-        // The first term is 200 * the common ratio, 0.95
-        firstTerm *= commonRatio;
-    }
-    // Runs if the amount of franchiseTenPercentDecreases is greater than or equal to 1
-    if (franchiseTenPercentDecrease >= 1) {
-        // Reduce the amount of money the franchises are generating, by 10 percent, for every franchiseTenPercentDecrease there is
-        /*  Return the result*/
-        for (let g = 0; g < franchiseTenPercentDecrease; g++) {
-            result *= 0.9;
-        }
-    }
-    /*  Return the result*/
-    return result;
-}
-
-//// Try and change the result in franchisegeomtric series to * 0.9 if franchisee revolt is used
-//// This function will run every 5 minutes, after the user gains 8 franchises
+// This function will run every 5 minutes, after the user gains 8 franchises
 function franchiseeRevolt() {
     // When the user has over 8 franchises
     if (franchiseNum > 8) {
         // Creates random numbers from 1-10
         let randomNumber = Math.floor(Math.random() * 100) + 1;
         // 15% chance of occuring
-        if (randomNumber <= 15) {
+        if (randomNumber <= 15) { ///// Testing: Should be 15
             // Ask user which choice they would like to make, in regards to their franchises
             let text = "The people have revolted against your franchises!\nPress 'Ok' to reduce franchise royalties by 10%\nPress 'Cancel' to lose half of your franchises.";
             // Reduce royalties by 10* if user presses 'Ok'
@@ -263,19 +223,37 @@ function franchiseeRevolt() {
         }
     }
 }
-
 // Runs the function franchiseeRevolt() every 5 minutes
-setInterval(franchiseeRevolt, 300000);        //// Should be 5 minutes
-
+setInterval(franchiseeRevolt, 300000);        ///// Testing: Should be 5 minutes (300000)
 // This is the initial public offering function. After a set amount of time, $50,000 will be added
 // to the count for money.
 function initialPublicOffering() {
-    alert("You've been massaging for a while! You've earned $50,000 from your massage company's intial public offering!");
+    // $50,000 is added to the money count and the user gets an alert showing them that they have received this money.
+    alert("You've been massaging for a while! Congratulations! You have earned $50,000 from your massage company's intial public offering?");
     count += 50000;
+    // Call the checkOfferResponse() function, 30 seconds after the initialPublicOffering() function is called
+    setTimeout(corporatePowerStruggle)
 }
 // Call the intialPublicOffering function after 10 minutes
-setTimeout(initialPublicOffering, 600000)
-
+setTimeout(initialPublicOffering, 600000) ///// Testing: Should be 600000
+// This function is called immediately after the initalPublicOffering function is called
+function corporatePowerStruggle() {
+    // Set the timeout for logout to 30 seconds (30000 ms)
+    var time = setTimeout(logout, 30000);
+    // DOM event for mouse click
+    // If user clicks, then the timer is resetted
+    window.onclick = resetTimer;
+    // If user does not click within 30 seconds, then they get pwned and redirected to Elon Musk' dungeon
+    function logout() {
+        let pwn = alert("You have been logged out.");
+        setTimeout(pwn);
+        location.href = 'elonmusk.html';
+    }
+    // Clear timer
+    function resetTimer() {
+        clearTimeout(time);
+    }
+}
 // This function will run, once the 'Hire Security!' button is pressed
 function hireSecurity() {
     if (count >= securityPrice) {
@@ -287,7 +265,6 @@ function hireSecurity() {
         document.getElementById('security').innerText = 'Buy security: ' + securityNum;
     }
 }
-
 // This function will update the information for money and status
 function syncInfo() {
     // Round the displayed amount of money to two decimal places
@@ -313,23 +290,22 @@ function syncInfo() {
     document.getElementById('relocate').disabled = (count < relocationPrice);
     document.getElementById('security').disabled = (count < securityPrice);
 }
-
 // The function syncInfo will be called and utilized every 15 milliseconds
 setInterval(syncInfo, 50);
-
 // This function adds the number of upgrades to the count for the upgrades and also adds the money as well. Also checks for upgrade status
 function updatingUpgrades() {
     // Add the number of assistants to the money count (1 assistant = $1)
     count += attractiveAssistantNum;
-    // Find the sum of all the money the franchises output and add them to the count
+    // Find the sum of all the money the franchises output and add them to the count.
+    // The geometric series equation is utilized here
+    //// Math.pow can be also be used instead of "**"
     if (franchiseNum > 0) {
-        count += franchiseGeometricSeries();
+        count += (200 * (1 - 0.95 ** franchiseNum)) / (1 - 0.95) * (0.9 ** franchiseTenPercentDecrease);
     }
     // Remove the amount of money in the count that is given to security
     if (securityNum > 0) {
         count -= securityNum * securityPrice;
     }
-    franchiseeRevoltActivation1();
 }
 // The updatingUpgrades function is called every second, so upgrade can be added onto the count for money.
 setInterval(updatingUpgrades, 1000);

@@ -1,4 +1,8 @@
-﻿body {background-color:lightslategray;}
+﻿.container {
+    text-align: center;
+}
+
+body {background-color:lightslategray;}
 p{color:whitesmoke;}
 h1{color:antiquewhite;}
 button{color:black;}

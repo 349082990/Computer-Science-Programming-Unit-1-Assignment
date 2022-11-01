@@ -1,4 +1,12 @@
-﻿body {background-color:lightslategray;}
+﻿P { text-align: center }
+H1 { text-align: center }
+H2 { text-align: center }
+H3 { text-align: center }
+ul {
+    text-align: center;
+    list-style: inside;
+}
+body {background-color:lightslategray;}
 p{color:whitesmoke;}
 h1{color:antiquewhite;}
 h2{color:floralwhite;}

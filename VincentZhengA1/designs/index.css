@@ -1,4 +1,23 @@
-﻿img:hover{transform: scale(1.1);}
+﻿P { text-align: center }
+H1 { text-align: center }
+H2 { text-align: center }
+
+.container {
+    text-align: center;
+    font-size: 0;
+}
+
+.container2 {
+    text-align: center;
+}
+
+.displayed {
+    display: inline-block;
+    margin: 5px 20px;
+    padding: 5px;
+}
+
+img:hover{transform: scale(1.1);}
 body {background-color:lightslategray;}
 p{color:whitesmoke;}
 h1{color:antiquewhite;}
