@@ -6,8 +6,9 @@ ul {
     text-align: center;
     list-style: inside;
 }
-body {background-color:lightslategray;}
+body {background-color:#36393e;}
 p{color:whitesmoke;}
+a{color:whitesmoke;}
 h1{color:antiquewhite;}
 h2{color:floralwhite;}
 li{color:whitesmoke;}

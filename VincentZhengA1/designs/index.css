@@ -1,24 +1,9 @@
 ﻿P { text-align: center }
 H1 { text-align: center }
 H2 { text-align: center }
-
-.container {
-    text-align: center;
-    font-size: 0;
-}
-
-.container2 {
-    text-align: center;
-}
-
-.displayed {
-    display: inline-block;
-    margin: 5px 20px;
-    padding: 5px;
-}
-
+a{color:whitesmoke;}
 img:hover{transform: scale(1.1);}
-body {background-color:lightslategray;}
+body {background-color:	#36393e;}
 p{color:whitesmoke;}
 h1{color:antiquewhite;}
 h2{color:floralwhite;}
@@ -26,5 +11,49 @@ button{color:black;}
     button:hover {
         color: aquamarine;
         background-color: deepskyblue;
-        transform: scale(1.1)
+        transform: scale(1.025)
     }
+
+* {
+  box-sizing: border-box;
+}
+.header {
+    background-color: #424549;
+    padding: 15px;
+    text-align: center;
+}
+.container {
+    text-align: center;
+    font-size: 0;
+    float: left;
+    width: 60%;
+    padding: 15px;
+}
+.container2 {
+    background-color: #424549;
+    float: left;
+    width: 30%;
+    padding: 15px;
+    margin-top: 7px;
+}
+.block {
+    display: block;
+    width: 100%;
+    border: none;
+    background-color: #7289da;
+    padding: 24px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+}
+button:disabled,
+button[disabled] {
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
+}
+@media only screen and (max-width: 100px) {
+    .container, .container2 {
+        width: 100%;
+    }
+}
