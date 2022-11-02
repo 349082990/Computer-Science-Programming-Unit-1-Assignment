@@ -5,6 +5,7 @@ a{color:whitesmoke;}
 img:hover{transform: scale(1.1);}
 body {background-color:	#36393e;}
 p{color:whitesmoke;}
+a{color:whitesmoke;}
 h1{color:antiquewhite;}
 h2{color:floralwhite;}
 button{color:black;}
@@ -19,30 +20,37 @@ button{color:black;}
 }
 .header {
     background-color: #424549;
-    padding: 15px;
+    padding: 1.5vh;
     text-align: center;
 }
 .container {
     text-align: center;
     font-size: 0;
     float: left;
-    width: 60%;
-    padding: 15px;
+    width: 60vw;
+    padding: 1.5vh;
+}
+img {
+    max-width: fit-content;
+    height: 62.5vh;
+    min-height: 200px;
 }
 .container2 {
     background-color: #424549;
     float: left;
-    width: 30%;
-    padding: 15px;
-    margin-top: 7px;
+    width: 30vw;
+    padding: 1vh 1vw;
+    margin-top: 0.5vh;
 }
 .block {
-    display: block;
-    width: 100%;
+    font-size: 2vh;
+    display: inline-block;
+    width: 27vw;
+    height: fit-content;
     border: none;
     background-color: #7289da;
-    padding: 24px 28px;
-    font-size: 16px;
+    padding: 2vh 2vw;
+    margin: 1vh;
     cursor: pointer;
     text-align: center;
 }

@@ -6,8 +6,10 @@ body {background-color: #36393e;}
 p{color:whitesmoke;}
 label{color:whitesmoke;}
 h2{color:antiquewhite;}
+a{color:whitesmoke;}
 button{color:black;}
     button:hover {
         color: aquamarine;
         background-color: deepskyblue;
         transform: scale(1.1)
+    }
