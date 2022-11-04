@@ -11,5 +11,5 @@ button{color:black;}
     button:hover {
         color: aquamarine;
         background-color: deepskyblue;
-        transform: scale(1.1)
+        transform: scale(1.1);
     }
