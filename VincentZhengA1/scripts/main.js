@@ -1,5 +1,5 @@
 // Made by: Vincent Zheng
-// G11 Computer Science, P3 programming unit 1 assignment
+// G11 Computer Science, P4 programming unit 1 assignment
 // 2022-11-04
 // This program is the javascript for the massage mayhem game. The upgrades and function calls on the website all lead to this program.
 
