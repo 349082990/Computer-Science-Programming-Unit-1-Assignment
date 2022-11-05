@@ -21,30 +21,28 @@ function loginSecurity() {
     }
 }
 // Set the sections of the back as constants
-const LOWER_BACK = 0;
-const MIDDLE_BACK = 1;
-const UPPER_BACK = 2;
-// Setting randomNumber as a global variable
-let randomNumber;
+const LOWER_BACK = 0; // constant for LOWER_BACK used in the choosingBackPart() function to choose which part of the back
+const MIDDLE_BACK = 1; // constant for MIDDLE_BACK used in the choosingBackPart() function to choose which part of the back
+const UPPER_BACK = 2; // constant for UPPER_BACK used in the choosingBackPart() function to choose which part of the back
+let randomNumber; // Setting randomNumber as a global variable
 // Define global variables, which will be used to keep track of the count for money and the various
 // Upgrades that are offered
-let count = 0;
-let muscularFingerPrice = 100;
-let muscularFingerNum = 0;
-let attractiveAssistantPrice = 400;
-let attractiveAssistantNum = 0;
-let ambidextrousPrice = 500;       
-let ambidextrousNum = 0;           
-let franchisePrice = 5000;
-let franchiseNum = 0; 
-let franchiseTenPercentDecrease = 0;
-let crimeNumber = 25;
-let moneyLost = 0.5; 
-let relocationPrice = 10000;
-let relocationNum = 0;
-let securityPrice = 5;
-let securityNum = 0;
-let publicOffering = false;
+let count = 0;  // The amount of money the user has
+let muscularFingerPrice = 100;  // The price for the first muscular fingers upgrade
+let muscularFingerNum = 0;  // The amount of muscular fingers upgrades that have been purchased
+let attractiveAssistantPrice = 400; // The price for the first incredibly attractive assistant upgrade
+let attractiveAssistantNum = 0; // The amount of incredibly attractive assistant upgrades that have been purchased
+let ambidextrousPrice = 500;    // The price for the ambidextrous upgrade
+let ambidextrousNum = 0;  // The amount of ambidextrous upgrades that have been purchased
+let franchisePrice = 5000;  // The price for the first franchise upgrade
+let franchiseNum = 0;   // The amount of franchises that have been purchased
+let franchiseTenPercentDecrease = 0;    // The amount of times the user has decided to reduce their franchise royalties by 10%
+let crimeNumber = 25;   // Representing the 25% in the chances of getting robbed
+let moneyLost = 0.5;    // Representing the user losing 50% of their money in the crime function
+let relocationPrice = 10000;    // The price for the first relocation upgrade
+let relocationNum = 0;  //  The number of relocation upgrades, which have been purchased
+let securityPrice = 5;  // The price of the security upgrade
+let securityNum = 0;    // The number of security that the user has bought/hired
 // This function will have the program randomly choose parts of the back, and display the prompts
 // or problems with each part. The function runs every 10 seconds.
 function choosingBackPart() {
