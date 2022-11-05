@@ -128,8 +128,10 @@ function extraMuscularFingers() {
         muscularFingerNum += 1;
         // Subtract the price of the extra muscular finger upgrade from the money count
         count -= muscularFingerPrice;
-        // Increase the price of the finger by 10% of the previous cost, everytime
-        muscularFingerPrice *= 1.1;
+        // Increase the price of the finger by 10% of the previous cost, everytime. 
+        var roundFingerPrice = muscularFingerPrice *= 1.1;
+        // Round to the nearest 2 decimal places
+        roundFingerPrice.toFixed(2);
         // Show the number of fingers purchased on the button 
         document.getElementById('muscularfinger').innerText = 'Buy an Extra Muscular Finger!: ' + muscularFingerNum;
     }
@@ -142,8 +144,10 @@ function buyAttractiveAssistant() {
         attractiveAssistantNum += 1;
         // Subtract the price of the attractive assistant upgrade from the money count
         count -= attractiveAssistantPrice;
-        // Increase the price of the attractive assistant by 15% of the previous cost, everytime
-        attractiveAssistantPrice *= 1.15;
+        // Increase the price of the attractive assistant by 15% of the previous cost, everytime.
+        var roundAssistantPrice = attractiveAssistantPrice *= 1.15;
+        // Round to the nearest 2 decimal places
+        roundAssistantPrice.toFixed(2);
         // Show the number of attractive assistants purchased on the button
         document.getElementById('assistant').innerText = 'Buy an Incredibly Attractive Assistant!: ' + attractiveAssistantNum;
     }
@@ -168,8 +172,10 @@ function buyFranchise() {
         franchiseNum += 1;
         // Subtract the price of the upgrade from the money count
         count -= franchisePrice;
-        // Increase the price of the franchise by 10% of the previous franchise upgrade cost
-        franchisePrice *= 1.1;
+        // Increase the price of the franchise by 10% of the previous franchise upgrade cost. 
+        roundFranchisePrice = franchisePrice *= 1.1;
+        // Round to the nearest 2 decimal places
+        roundFranchisePrice.toFixed(2);
         // Show the number of franchise buttons purchased on the button
         document.getElementById('franchise').innerText = 'Buy Franchises: ' + franchiseNum;
         // If user clicks on the buy franchise button and the user has 9 franchises, then this statement runs.
