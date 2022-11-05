@@ -31,9 +31,10 @@ button{color:black;}
     padding: 1.5vh;
 }
 img {
+    height: 62.5%;
     max-width: fit-content;
-    height: 62.5vh;
     min-height: 200px;
+    padding: 0px;
 }
 .container2 {
     background-color: #424549;
